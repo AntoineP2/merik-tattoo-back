@@ -1,8 +1,10 @@
 import express from "express";
 import {Request, Response} from "express";
 import cors from "cors";
+import db from "../data/data";
 const app: express.Application = express();
 
+db.on
 app.use(cors());
 app.use(express.json());
 
