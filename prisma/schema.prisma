@@ -36,6 +36,7 @@ model Tattoo {
 model Theme {
   id      Int       @id @default(autoincrement())
   name    String
+  image   String?
   Picture Picture[]
 }
 

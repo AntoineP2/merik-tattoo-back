@@ -1,6 +1,7 @@
 import express from "express";
 import {Request, Response} from "express";
 import { exempleRouter } from "../routes/exemple";
+import { pictureRouter } from "../routes/pictureRoute";
 import cors from "cors";
 import db from "../data/data";
 const app: express.Application = express();
@@ -14,6 +15,6 @@ app.get('/api', (req: Request, res: Response) => { res.send('Need to add /v1')})
 app.get('/api/v1', (req: Request, res: Response) => { res.send('Welcome at gladiatorBack API')})
 
 app.use('/api/v1/exemple', exempleRouter);
-
+app.use('/api/v1/picture', pictureRouter);
 
 export default app;

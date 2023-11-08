@@ -2,17 +2,23 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export async function exemple() {
+
+// Cette fonction recupère toutes les images
+export async function getThemeImageDao() {
     // ... you will write your Prisma Client queries here
     try {
-        const result =  await prisma.user.findMany({
+        const images = await prisma.theme.findMany({
             select: {
-                email: true,
-                name: true
+                id: true,
+                name: true,
+                image: true,
+            },
+            orderBy: {
+                id: "asc"
             }
         })
         await prisma.$disconnect()
-        return result
+        return images
     } catch (e) {
         console.error(e)
         await prisma.$disconnect()
