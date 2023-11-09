@@ -30,6 +30,7 @@ model Post {
 model Tattoo {
   id      Int       @id @default(autoincrement())
   name    String
+  isFlash  Boolean @default(false)
   Picture Picture[]
 }
 
@@ -42,12 +43,10 @@ model Theme {
 
 model Picture {
   id       Int     @id @default(autoincrement())
-  name     String
   tattoo   Tattoo  @relation(fields: [tattooId], references: [id])
   tattooId Int
   theme    Theme?   @relation(fields: [themeId], references: [id])
   themeId  Int?
-  isFlash  Boolean @default(false)
   url      String
 }
 
