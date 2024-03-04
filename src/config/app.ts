@@ -3,6 +3,7 @@ import {Request, Response} from "express";
 import { exempleRouter } from "../routes/exemple";
 import { pictureRouter } from "../routes/picture.router";
 import { logRouter } from "../routes/log.router";
+import { emailRouter } from "../routes/email.router";
 import cors from "cors";
 import db from "../data/data";
 const app: express.Application = express();
@@ -18,4 +19,5 @@ app.get('/api/v1', (req: Request, res: Response) => { res.send('Welcome at gladi
 app.use('/api/v1/exemple', exempleRouter);
 app.use('/api/v1/picture', pictureRouter);
 app.use('/api/v1/log', logRouter);
+app.use('/api/v1/email', emailRouter);
 export default app;
